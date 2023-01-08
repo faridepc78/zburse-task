@@ -1,0 +1,588 @@
+{
+	"info": {
+		"_postman_id": "c753ea42-ac7e-4fbb-8309-bb7558614af4",
+		"name": "zburse-task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19129870"
+	},
+	"item": [
+		{
+			"name": "Api",
+			"item": [
+				{
+					"name": "V1",
+					"item": [
+						{
+							"name": "Auth",
+							"item": [
+								{
+									"name": "login",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {
+											"accept": true
+										}
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"reza@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/v1/auth/login",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"v1",
+												"auth",
+												"login"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "logout",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {
+											"accept": true
+										}
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "5|oGb9bh6NSw5CHQWyB6AjBscMZpVcPd9AIoXIkQIp",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/v1/auth/logout",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"v1",
+												"auth",
+												"logout"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "shop",
+							"item": [
+								{
+									"name": "save_cart",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {
+											"accept": true
+										}
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"data\": [\r\n        {\r\n            \"product_id\": 2,\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"product_id\": 4,\r\n            \"quantity\": 2\r\n        },\r\n        {\r\n            \"product_id\": 12,\r\n            \"quantity\": 3\r\n        }\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/v1/shop/save_cart",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"v1",
+												"shop",
+												"save_cart"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete_cart_items",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {
+											"accept": true
+										}
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"data\": [\r\n        {\r\n            \"product_id\": 2\r\n        }\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/v1/shop/delete_cart_items/1",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"v1",
+												"shop",
+												"delete_cart_items",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "save_order",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {
+											"accept": true
+										}
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/v1/shop/save_order/5",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"v1",
+												"shop",
+												"save_order",
+												"5"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "complete_order",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {
+											"accept": true
+										}
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/v1/shop/complete_order/2",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"v1",
+												"shop",
+												"complete_order",
+												"2"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"auth": {
+								"type": "bearer",
+								"bearer": [
+									{
+										"key": "token",
+										"value": "4|NJyJQXhyGpwZ3tPp6lYCyhA443pJ56R8Ysqk676z",
+										"type": "string"
+									}
+								]
+							},
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							]
+						},
+						{
+							"name": "Home",
+							"item": [
+								{
+									"name": "get_all_products",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {
+											"accept": true
+										},
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"reza@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/v1/home/products?status=active",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"v1",
+												"home",
+												"products"
+											],
+											"query": [
+												{
+													"key": "status",
+													"value": "active"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Panel",
+							"item": [
+								{
+									"name": "Admin",
+									"item": [
+										{
+											"name": "update_orders",
+											"protocolProfileBehavior": {
+												"disabledSystemHeaders": {
+													"accept": true
+												}
+											},
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"status\": \"awaiting_payment\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/v1/panel/orders/update/1",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"v1",
+														"panel",
+														"orders",
+														"update",
+														"1"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "convert_to_unavailable_products",
+											"protocolProfileBehavior": {
+												"disabledSystemHeaders": {
+													"accept": true
+												}
+											},
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"data\": [\r\n        {\r\n            \"product_id\": 2\r\n        }\r\n    ]\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/v1/panel/products/convert_to_unavailable",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"v1",
+														"panel",
+														"products",
+														"convert_to_unavailable"
+													]
+												}
+											},
+											"response": []
+										}
+									],
+									"auth": {
+										"type": "bearer",
+										"bearer": [
+											{
+												"key": "token",
+												"value": "1|Oh0qgtRZYhzg8V0XnTvcf3b1mVROP8dj9OMHtpyk",
+												"type": "string"
+											}
+										]
+									},
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"type": "text/javascript",
+												"exec": [
+													""
+												]
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"type": "text/javascript",
+												"exec": [
+													""
+												]
+											}
+										}
+									]
+								},
+								{
+									"name": "Common",
+									"item": [
+										{
+											"name": "get_orders",
+											"protocolProfileBehavior": {
+												"disabledSystemHeaders": {
+													"accept": true
+												},
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"status\": \"awaiting_payment\",\r\n    \"description\": \"this is test\",\r\n    \"data\": [\r\n        {\r\n            \"product_id\": 2,\r\n            \"quantity\": 20\r\n        }\r\n    ]\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/v1/panel/orders?started_at=2023-01-09 00:56&ended_at=2023-01-09 01:09&sort_type=desc",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"v1",
+														"panel",
+														"orders"
+													],
+													"query": [
+														{
+															"key": "started_at",
+															"value": "2023-01-09 00:56"
+														},
+														{
+															"key": "ended_at",
+															"value": "2023-01-09 01:09"
+														},
+														{
+															"key": "sort_type",
+															"value": "desc"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									],
+									"auth": {
+										"type": "bearer",
+										"bearer": [
+											{
+												"key": "token",
+												"value": "1|Oh0qgtRZYhzg8V0XnTvcf3b1mVROP8dj9OMHtpyk",
+												"type": "string"
+											}
+										]
+									},
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"type": "text/javascript",
+												"exec": [
+													""
+												]
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"type": "text/javascript",
+												"exec": [
+													""
+												]
+											}
+										}
+									]
+								}
+							],
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "LOCAL_BASE_URL",
+			"value": "https://zburse-task.test/api",
+			"type": "string"
+		}
+	]
+}
